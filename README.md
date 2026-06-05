@@ -32,13 +32,15 @@
 
 在你的 MCP 客户端（Claude Desktop、Cursor、Kiro 等）中添加：
 
-**方式一：远程 URL（支持 Streamable HTTP 的客户端）**
+**方式一：远程 URL（支持 Streamable HTTP 的客户端，如 Cursor、Kiro）**
+
+复制以下配置，替换 `<your-ark-api-key>` 为你的火山方舟 API Key 即可：
 
 ```json
 {
   "mcpServers": {
     "doubao-seedream": {
-      "url": "https://doubao-seedream-mcp.tangym.workers.dev/mcp",
+      "url": "https://seedream.mcp.996.ninja/mcp",
       "headers": {
         "Authorization": "Bearer <your-ark-api-key>",
         "X-Model": "doubao-seedream-5-0-260128"
@@ -57,12 +59,30 @@
       "command": "npx",
       "args": [
         "mcp-remote",
-        "https://doubao-seedream-mcp.tangym.workers.dev/mcp",
+        "https://seedream.mcp.996.ninja/mcp",
         "--header",
         "Authorization:Bearer <your-ark-api-key>",
         "--header",
         "X-Model:doubao-seedream-5-0-260128"
       ]
+    }
+  }
+}
+```
+
+**方式三：使用 VS Code / Cursor 的 MCP 配置（`.vscode/mcp.json`）**
+
+在项目根目录创建 `.vscode/mcp.json`：
+
+```json
+{
+  "servers": {
+    "doubao-seedream": {
+      "url": "https://seedream.mcp.996.ninja/mcp",
+      "headers": {
+        "Authorization": "Bearer <your-ark-api-key>",
+        "X-Model": "doubao-seedream-5-0-260128"
+      }
     }
   }
 }
